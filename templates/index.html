@@ -1,0 +1,1066 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pencerita Islami Anak - Generasi Cerita Bermoral</title>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2E7D32;
+            --primary-light: #81C784;
+            --primary-dark: #1B5E20;
+            --secondary: #FFD54F;
+            --accent: #AED581;
+            --light: #F1F8E9;
+            --dark: #1B5E20;
+            --text: #333;
+            --text-light: #666;
+            --pastel-blue: #B3E5FC;
+            --pastel-green: #C8E6C9;
+            --pastel-yellow: #FFF9C4;
+            --pastel-orange: #FFCC80;
+            --box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            --border-radius: 16px;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.8;
+            color: var(--text);
+            background-color: var(--light);
+            background-image: radial-gradient(circle at 10% 20%, var(--pastel-blue) 0%, var(--pastel-green) 90%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            border-radius: 0 0 var(--border-radius) var(--border-radius);
+            margin-bottom: 30px;
+            box-shadow: var(--box-shadow);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="rgba(255,255,255,0.1)"><path d="M30,10 Q50,5 70,10 T90,30 Q95,50 90,70 T70,90 Q50,95 30,90 T10,70 Q5,50 10,30 T30,10"/></svg>');
+            background-size: 80px;
+            opacity: 0.3;
+        }
+        
+        .logo {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            position: relative;
+        }
+        
+        .logo i {
+            color: var(--secondary);
+        }
+        
+        .tagline {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+        
+        @media (max-width: 900px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .form-section, .result-section {
+            background: white;
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .form-section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100px;
+            height: 100px;
+            background-color: var(--pastel-yellow);
+            border-radius: 50%;
+            filter: blur(60px);
+            z-index: 0;
+        }
+        
+        .result-section::before {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100px;
+            height: 100px;
+            background-color: var(--pastel-blue);
+            border-radius: 50%;
+            filter: blur(60px);
+            z-index: 0;
+        }
+        
+        .section-title {
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            position: relative;
+            font-family: 'Amiri', serif;
+        }
+        
+        .section-title i {
+            color: var(--primary-light);
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+            position: relative;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 500;
+            color: var(--primary-dark);
+            font-size: 1.1rem;
+        }
+        
+        input, select, textarea {
+            width: 100%;
+            padding: 15px 20px;
+            border: 2px solid var(--primary-light);
+            border-radius: 12px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background-color: white;
+            position: relative;
+            z-index: 1;
+        }
+        
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px rgba(46, 125, 50, 0.2);
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        
+        @media (max-width: 500px) {
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .btn {
+            padding: 16px 24px;
+            border-radius: 12px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+        
+        .btn-primary:disabled {
+            background-color: var(--primary-light);
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--primary-light);
+            color: white;
+        }
+        
+        .result-container {
+            margin-top: 20px;
+            border-radius: var(--border-radius);
+            background-color: white;
+            border: 1px solid var(--primary-light);
+            display: none;
+            position: relative;
+            overflow: hidden;
+            animation: fadeIn 0.6s ease-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .result-header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            padding: 20px;
+            border-bottom: 1px solid var(--primary-light);
+            background-color: var(--light);
+            position: relative;
+        }
+        
+        .result-title {
+            font-weight: 600;
+            color: var(--primary-dark);
+            font-size: 1.3rem;
+            font-family: 'Amiri', serif;
+            white-space: normal;
+            word-break: break-word;
+            text-align: center;
+            display: block;
+            margin-bottom: 0;
+        }
+        
+        .action-buttons {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 0;
+        }
+        
+        @media (max-width: 600px) {
+            .action-buttons {
+                flex-direction: column;
+            }
+        }
+        
+        .action-btn {
+            padding: 10px 16px;
+            border-radius: 8px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .copy-btn {
+            background-color: var(--light);
+            border: 1px solid var(--primary-light);
+            color: var(--primary-dark);
+        }
+        
+        .copy-btn:hover {
+            background-color: #E8F5E9;
+        }
+        
+        .download-btn {
+            background-color: var(--secondary);
+            color: var(--text);
+            border: 1px solid var(--secondary);
+        }
+        
+        .download-btn:hover {
+            background-color: #FFC107;
+        }
+        
+        .share-btn {
+            background-color: var(--pastel-blue);
+            color: var(--primary-dark);
+            border: 1px solid var(--pastel-blue);
+        }
+        
+        .share-btn:hover {
+            background-color: #81D4FA;
+        }
+        
+        .story-content {
+            white-space: pre-line;
+            line-height: 1.9;
+            padding: 25px;
+            font-size: 1.1rem;
+            background-color: white;
+            border-radius: 0 0 var(--border-radius) var(--border-radius);
+            max-height: 600px;
+            overflow-y: auto;
+            position: relative;
+        }
+        
+        .story-image {
+            width: 100%;
+            height: 200px;
+            background-color: var(--pastel-yellow);
+            border-radius: var(--border-radius) var(--border-radius) 0 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-dark);
+            font-size: 1.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .story-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .story-image-placeholder {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            text-align: center;
+            padding: 20px;
+            z-index: 1;
+        }
+        
+        .loading {
+            display: none;
+            text-align: center;
+            padding: 40px;
+            border-radius: var(--border-radius);
+            background-color: white;
+            margin: 20px 0;
+            box-shadow: var(--box-shadow);
+        }
+        
+        .spinner {
+            border: 5px solid rgba(46, 125, 50, 0.2);
+            border-radius: 50%;
+            border-top: 5px solid var(--primary);
+            width: 60px;
+            height: 60px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .loading-text {
+            font-size: 1.2rem;
+            color: var(--primary-dark);
+            margin-bottom: 10px;
+        }
+        
+        .loading-subtext {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+        
+        .language-toggle {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 25px;
+            background-color: var(--light);
+            border-radius: 50px;
+            padding: 8px;
+            border: 1px solid var(--primary-light);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .language-btn {
+            padding: 10px 25px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: none;
+            background: none;
+            flex: 1;
+            max-width: 200px;
+        }
+        
+        .language-btn.active {
+            background-color: var(--primary);
+            color: white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .badge {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            background-color: var(--pastel-orange);
+            color: var(--primary-dark);
+            margin-left: 10px;
+        }
+        
+        .history-container {
+            margin-top: 30px;
+            display: none;
+        }
+        
+        .history-item {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 20px;
+            margin-bottom: 15px;
+            box-shadow: var(--box-shadow);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-left: 4px solid var(--primary);
+        }
+        
+        .history-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+        }
+        
+        .history-title {
+            font-weight: 600;
+            color: var(--primary-dark);
+            margin-bottom: 5px;
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .history-meta {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            display: flex;
+            gap: 15px;
+        }
+        
+        .history-preview {
+            margin-top: 10px;
+            color: var(--text);
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: normal;
+            line-clamp: 2;
+            box-orient: vertical;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 30px 0;
+            color: var(--text-light);
+            font-size: 0.9rem;
+            border-top: 1px solid var(--primary-light);
+        }
+        
+        /* Tooltip */
+        .tooltip {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 200px;
+            background-color: var(--dark);
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 8px;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 0;
+            transition: opacity 0.3s;
+            font-size: 0.9rem;
+        }
+        
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
+        }
+        
+        /* Responsif */
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+            
+            header {
+                padding: 1.5rem 0;
+            }
+            
+            .logo {
+                font-size: 2rem;
+            }
+            
+            .form-section, .result-section {
+                padding: 20px;
+            }
+            
+            .section-title {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-mosque"></i>
+                <span>Pencerita Islami Anak</span>
+            </div>
+            <p class="tagline">Membuat cerita bermoral Islami yang mendidik dan menghibur untuk buah hati Anda</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <div class="main-content">
+            <section class="form-section">
+                <h2 class="section-title">
+                    <i class="fas fa-pencil-alt"></i>
+                    <span>Buat Cerita Baru</span>
+                </h2>
+                
+                <div class="language-toggle">
+                    <button class="language-btn active" data-lang="id">
+                        <i class="fas fa-language"></i> Bahasa Indonesia
+                    </button>
+                    <button class="language-btn" data-lang="en">
+                        <i class="fas fa-language"></i> English
+                    </button>
+                </div>
+                
+                <form id="storyForm">
+                    <div class="form-group">
+                        <label for="childName" id="childNameLabel">Nama Anak</label>
+                        <input type="text" id="childName" placeholder="Misalnya: Aisyah, Fathan" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="theme" id="themeLabel">Tema Cerita</label>
+                        <select id="theme" required>
+                            <option value="sabar">Sabar</option>
+                            <option value="jujur">Jujur</option>
+                            <option value="sedekah">Sedekah</option>
+                            <option value="taat orang tua">Taat Orang Tua</option>
+                            <option value="tidak sombong">Tidak Sombong</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="ageGroup" id="ageGroupLabel">Kelompok Usia</label>
+                            <select id="ageGroup" required>
+                                <option value="3-5">3-5 Tahun</option>
+                                <option value="6-8">6-8 Tahun</option>
+                                <option value="9-12">9-12 Tahun</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="length" id="lengthLabel">Panjang Cerita</label>
+                            <select id="length" required>
+                                <option value="pendek">Pendek</option>
+                                <option value="sedang">Sedang</option>
+                                <option value="panjang">Panjang</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="additionalNotes" id="notesLabel">Catatan Tambahan <span class="badge" id="optionalBadge">Opsional</span></label>
+                        <textarea id="additionalNotes" rows="3" placeholder="Contoh: Sertakan ayat Quran tentang sabar, atau setting di pasar"></textarea>
+                    </div>
+                    
+                    <button type="submit" id="generateBtn" class="btn btn-primary">
+                        <i class="fas fa-magic"></i>
+                        <span id="generateText">Buatkan Cerita</span>
+                    </button>
+                </form>
+                
+                <div class="loading" id="loading">
+                    <div class="spinner"></div>
+                    <p class="loading-text" id="loadingText">Sedang membuat cerita unik...</p>
+                    <p class="loading-subtext" id="loadingSubtext">Proses mungkin memakan waktu 15-30 detik</p>
+                </div>
+                
+                <div class="history-container" id="historyContainer">
+                    <h3 class="section-title">
+                        <i class="fas fa-history"></i>
+                        <span id="historyTitle">Riwayat Cerita</span>
+                    </h3>
+                    <div id="historyList"></div>
+                </div>
+            </section>
+            
+            <section class="result-section">
+                <h2 class="section-title">
+                    <i class="fas fa-book-open"></i>
+                    <span id="resultTitle">Hasil Cerita</span>
+                </h2>
+                
+                <div class="result-container" id="resultContainer">
+                    <div class="story-image" id="storyImage">
+                        <div class="story-image-placeholder">
+                            <i class="fas fa-image" style="font-size: 3rem;"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="result-header">
+                        <div class="action-buttons">
+                            <button class="action-btn copy-btn" id="copyBtn">
+                                <i class="far fa-copy"></i>
+                                <span id="copyText">Salin</span>
+                            </button>
+                            <button class="action-btn download-btn" id="downloadBtn">
+                                <i class="fas fa-file-pdf"></i>
+                                <span id="downloadText">PDF</span>
+                            </button>
+                            <button class="action-btn share-btn" id="shareBtn">
+                                <i class="fas fa-share-alt"></i>
+                                <span id="shareText">Bagikan</span>
+                            </button>
+                        </div>
+                        <h3 class="result-title" id="storyTitleDisplay">
+                            <i class="fas fa-bookmark"></i>
+                            <span id="storyTitleText">Judul Cerita</span>
+                        </h3>
+                    </div>
+                    
+                    <div class="story-content" id="storyContent">
+                        <p id="storyPlaceholder">Cerita akan muncul di sini setelah Anda mengisi form dan menekan tombol "Buatkan Cerita".</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+    
+    <footer>
+        <p>&copy; 2025 Pencerita Islami Anak | Dibangun dengan <i class="fas fa-heart" style="color: #e91e63;"></i> untuk pendidikan anak</p>
+    </footer>
+    
+    <script>
+        // Global variables
+        let currentLanguage = 'id';
+        let currentStoryId = null;
+        let storiesHistory = [];
+        
+        // Tambahkan di atas script utama
+        const apiBase = window.location.origin;
+        
+        // DOM Elements
+        const languageBtns = document.querySelectorAll('.language-btn');
+        const form = document.getElementById('storyForm');
+        const generateBtn = document.getElementById('generateBtn');
+        const loadingEl = document.getElementById('loading');
+        const resultContainer = document.getElementById('resultContainer');
+        const storyContentEl = document.getElementById('storyContent');
+        const storyTitleEl = document.getElementById('storyTitleText');
+        const storyTitleDisplay = document.getElementById('storyTitleDisplay');
+        const historyContainer = document.getElementById('historyContainer');
+        const historyList = document.getElementById('historyList');
+        
+        // Language toggle
+        languageBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                languageBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                currentLanguage = btn.dataset.lang;
+                updateUIForLanguage(currentLanguage);
+            });
+        });
+        
+        // Update all UI elements based on language
+        function updateUIForLanguage(lang) {
+            const translations = {
+                'id': {
+                    'childNameLabel': 'Nama Anak',
+                    'themeLabel': 'Tema Cerita',
+                    'ageGroupLabel': 'Kelompok Usia',
+                    'lengthLabel': 'Panjang Cerita',
+                    'notesLabel': 'Catatan Tambahan',
+                    'optionalBadge': 'Opsional',
+                    'generateText': 'Buatkan Cerita',
+                    'loadingText': 'Sedang membuat cerita unik...',
+                    'loadingSubtext': 'Proses mungkin memakan waktu 15-30 detik',
+                    'historyTitle': 'Riwayat Cerita',
+                    'resultTitle': 'Hasil Cerita',
+                    'imagePromptText': 'Ilustrasi cerita akan muncul di sini',
+                    'copyText': 'Salin',
+                    'downloadText': 'PDF',
+                    'shareText': 'Bagikan',
+                    'storyPlaceholder': 'Cerita akan muncul di sini setelah Anda mengisi form dan menekan tombol "Buatkan Cerita".',
+                    'themeOptions': {
+                        'sabar': 'Sabar',
+                        'jujur': 'Jujur',
+                        'sedekah': 'Sedekah',
+                        'taat orang tua': 'Taat Orang Tua',
+                        'tidak sombong': 'Tidak Sombong'
+                    },
+                    'ageGroupOptions': {
+                        '3-5': '3-5 Tahun',
+                        '6-8': '6-8 Tahun',
+                        '9-12': '9-12 Tahun'
+                    },
+                    'lengthOptions': {
+                        'pendek': 'Pendek',
+                        'sedang': 'Sedang',
+                        'panjang': 'Panjang'
+                    }
+                },
+                'en': {
+                    'childNameLabel': "Child's Name",
+                    'themeLabel': 'Story Theme',
+                    'ageGroupLabel': 'Age Group',
+                    'lengthLabel': 'Story Length',
+                    'notesLabel': 'Additional Notes',
+                    'optionalBadge': 'Optional',
+                    'generateText': 'Generate Story',
+                    'loadingText': 'Creating unique story...',
+                    'loadingSubtext': 'Process may take 15-30 seconds',
+                    'historyTitle': 'Story History',
+                    'resultTitle': 'Story Result',
+                    'imagePromptText': 'Story illustration will appear here',
+                    'copyText': 'Copy',
+                    'downloadText': 'PDF',
+                    'shareText': 'Share',
+                    'storyPlaceholder': 'The story will appear here after you fill the form and click "Generate Story".',
+                    'themeOptions': {
+                        'sabar': 'Patience',
+                        'jujur': 'Honesty',
+                        'sedekah': 'Charity',
+                        'taat orang tua': 'Obedience to Parents',
+                        'tidak sombong': 'Humility'
+                    },
+                    'ageGroupOptions': {
+                        '3-5': '3-5 Years',
+                        '6-8': '6-8 Years',
+                        '9-12': '9-12 Years'
+                    },
+                    'lengthOptions': {
+                        'pendek': 'Short',
+                        'sedang': 'Medium',
+                        'panjang': 'Long'
+                    }
+                }
+            };
+            
+            const t = translations[lang];
+            
+            // Update form labels
+            document.getElementById('childNameLabel').textContent = t.childNameLabel;
+            document.getElementById('themeLabel').textContent = t.themeLabel;
+            document.getElementById('ageGroupLabel').textContent = t.ageGroupLabel;
+            document.getElementById('lengthLabel').textContent = t.lengthLabel;
+            document.getElementById('notesLabel').textContent = t.notesLabel;
+            document.getElementById('optionalBadge').textContent = t.optionalBadge;
+            document.getElementById('generateText').textContent = t.generateText;
+            document.getElementById('loadingText').textContent = t.loadingText;
+            document.getElementById('loadingSubtext').textContent = t.loadingSubtext;
+            document.getElementById('historyTitle').textContent = t.historyTitle;
+            document.getElementById('resultTitle').textContent = t.resultTitle;
+            document.getElementById('storyPlaceholder').textContent = t.storyPlaceholder;
+            
+            // Update select options
+            updateSelectOptions('theme', t.themeOptions);
+            updateSelectOptions('ageGroup', t.ageGroupOptions);
+            updateSelectOptions('length', t.lengthOptions);
+        }
+        
+        function updateSelectOptions(selectId, options) {
+            const select = document.getElementById(selectId);
+            const currentValue = select.value;
+            select.innerHTML = '';
+            
+            for (const [value, text] of Object.entries(options)) {
+                const option = document.createElement('option');
+                option.value = value;
+                option.textContent = text;
+                select.appendChild(option);
+            }
+            
+            // Restore selected value if it exists in new options
+            if (options[currentValue]) {
+                select.value = currentValue;
+            }
+        }
+        
+        // Form submission
+        form.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const childName = document.getElementById('childName').value.trim();
+            const theme = document.getElementById('theme').value;
+            const ageGroup = document.getElementById('ageGroup').value;
+            const length = document.getElementById('length').value;
+            const notes = document.getElementById('additionalNotes').value;
+            
+            if (!childName) {
+                alert(currentLanguage === 'id' ? 'Silakan masukkan nama anak' : 'Please enter child name');
+                return;
+            }
+            
+            // Show loading, hide result
+            loadingEl.style.display = 'block';
+            resultContainer.style.display = 'none';
+            generateBtn.disabled = true;
+            
+            try {
+                const response = await fetch(`${apiBase}/generate_story`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        nama_anak: childName,
+                        tema: theme,
+                        bahasa: currentLanguage,
+                        usia: ageGroup,
+                        panjang: length,
+                        catatan: notes
+                    })
+                });
+                
+                const data = await response.json();
+                
+                if (data.error) {
+                    throw new Error(data.error);
+                }
+                
+                // Display the story
+                displayStory(data);
+                
+                // Add to history
+                addToHistory(data);
+                
+            } catch (error) {
+                console.error('Error:', error);
+                storyTitleEl.textContent = currentLanguage === 'id' ? 'Terjadi Kesalahan' : 'Error Occurred';
+                storyContentEl.innerHTML = `<p style="color: #e53935;">${currentLanguage === 'id' 
+                    ? 'Maaf, terjadi kesalahan saat membuat cerita. Silakan coba lagi.' 
+                    : 'Sorry, an error occurred while creating the story. Please try again.'}<br><br>${error.message}</p>`;
+                resultContainer.style.display = 'block';
+            } finally {
+                loadingEl.style.display = 'none';
+                generateBtn.disabled = false;
+            }
+        });
+        
+        // Display generated story
+        function displayStory(storyData) {
+            storyTitleEl.textContent = storyData.judul;
+            storyContentEl.textContent = storyData.isi;
+            
+            // Store current story ID for download/share
+            currentStoryId = storyData.id;
+            
+            // Show result container with animation
+            resultContainer.style.display = 'block';
+            
+            // Show history section
+            historyContainer.style.display = 'block';
+        }
+        
+        // Add story to history
+        function addToHistory(storyData) {
+            // Add to beginning of array
+            storiesHistory.unshift({
+                id: storyData.id,
+                title: storyData.judul,
+                content: storyData.isi,
+                theme: storyData.metadata.tema,
+                childName: storyData.metadata.nama_anak,
+                date: new Date(storyData.metadata.waktu).toLocaleString(),
+                language: storyData.metadata.bahasa
+            });
+            
+            // Keep only last 5 stories
+            if (storiesHistory.length > 5) {
+                storiesHistory.pop();
+            }
+            
+            renderHistory();
+        }
+        
+        // Render history list
+        function renderHistory() {
+            historyList.innerHTML = '';
+            
+            if (storiesHistory.length === 0) {
+                historyList.innerHTML = `<p style="text-align: center; color: var(--text-light);">${currentLanguage === 'id' 
+                    ? 'Belum ada riwayat cerita' 
+                    : 'No story history yet'}</p>`;
+                return;
+            }
+            
+            storiesHistory.forEach(story => {
+                const historyItem = document.createElement('div');
+                historyItem.className = 'history-item';
+                historyItem.innerHTML = `
+                    <div class="history-title">
+                        <span>${story.title}</span>
+                        <span style="color: ${story.language === 'id' ? '#2E7D32' : '#1565C0'}">
+                            ${story.language === 'id' ? 'ID' : 'EN'}
+                        </span>
+                    </div>
+                    <div class="history-meta">
+                        <span><i class="fas fa-child"></i> ${story.childName}</span>
+                        <span><i class="fas fa-tag"></i> ${story.theme}</span>
+                        <span><i class="fas fa-clock"></i> ${story.date}</span>
+                    </div>
+                    <div class="history-preview">${story.content.substring(0, 150)}...</div>
+                `;
+                
+                historyItem.addEventListener('click', () => {
+                    // Load story when clicked
+                    storyTitleEl.textContent = story.title;
+                    storyContentEl.textContent = story.content;
+                    currentStoryId = story.id;
+                    
+                    // Show result container
+                    resultContainer.style.display = 'block';
+                });
+                
+                historyList.appendChild(historyItem);
+            });
+        }
+        
+        // Copy story to clipboard
+        document.getElementById('copyBtn').addEventListener('click', function() {
+            const title = storyTitleEl.textContent;
+            const content = storyContentEl.textContent;
+            const fullText = `${title}\n\n${content}`;
+            
+            navigator.clipboard.writeText(fullText).then(() => {
+                const originalText = this.innerHTML;
+                this.innerHTML = `<i class="fas fa-check"></i> ${currentLanguage === 'id' ? 'Tersalin!' : 'Copied!'}`;
+                
+                setTimeout(() => {
+                    this.innerHTML = originalText;
+                }, 2000);
+            });
+        });
+        
+        // Download PDF
+        document.getElementById('downloadBtn').addEventListener('click', function() {
+            if (!currentStoryId) {
+                alert(currentLanguage === 'id' 
+                    ? 'Tidak ada cerita yang bisa diunduh' 
+                    : 'No story available to download');
+                return;
+            }
+            
+            // In a real implementation, this would call your backend PDF generator
+            // For now, we'll simulate it with the current story
+            const title = storyTitleEl.textContent;
+            const content = storyContentEl.textContent;
+            const childName = document.getElementById('childName').value.trim() || 'Anak';
+            
+            // Create a temporary download link
+            const blob = new Blob([`${title}\n\n${content}`], { type: 'text/plain' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = `${apiBase}/download_pdf/${currentStoryId}`;
+            a.download = `cerita_${childName}_${currentStoryId.slice(-6)}.pdf`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        });
+        
+        // Share story
+        document.getElementById('shareBtn').addEventListener('click', function() {
+            if (!currentStoryId) {
+                alert(currentLanguage === 'id' 
+                    ? 'Tidak ada cerita yang bisa dibagikan' 
+                    : 'No story available to share');
+                return;
+            }
+            
+            if (navigator.share) {
+                navigator.share({
+                    title: storyTitleEl.textContent,
+                    text: storyContentEl.textContent.substring(0, 100) + '...',
+                    url: window.location.href
+                }).catch(err => {
+                    console.log('Error sharing:', err);
+                });
+            } else {
+                // Fallback for browsers that don't support Web Share API
+                alert(currentLanguage === 'id' 
+                    ? 'Fitur berbagi tidak didukung di browser Anda. Silakan salin cerita secara manual.' 
+                    : 'Share feature not supported in your browser. Please copy the story manually.');
+            }
+        });
+        
+        // Initialize
+        updateUIForLanguage(currentLanguage);
+        renderHistory();
+    </script>
+</body>
+</html>
